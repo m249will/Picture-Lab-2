@@ -154,16 +154,16 @@ public class Picture extends SimplePicture
     	  int width = pixels[0].length;
     	  int midIndex = height/2;
     	  int lastIndex = height -1;
-    	  Pixel leftPixel = null;
-    	  Pixel rightPixel = null;
+    	  Pixel topPixel = null;
+    	  Pixel botPixel = null;
     	  
-    	  for(int row=0; row < height; row++){
-    		  for(int col=0; col < midIndex; col++){
-    			  leftPixel = pixels[row][col];
-    			  rightPixel = pixels[row][lastIndex-col];
-    			  Color temp = rightPixel.getColor();
-    			  rightPixel.setColor(leftPixel.getColor());
-    			  leftPixel.setColor(temp);
+    	  for(int col=0; col < width; col++){
+    		  for(int row=0; row < midIndex; row++){
+    			  topPixel = pixels[row][col];
+    			  botPixel = pixels[lastIndex-row][col];
+    			  Color temp = botPixel.getColor();
+    			  botPixel.setColor(topPixel.getColor());
+    			  topPixel.setColor(temp);
     		  }
     	  }
       }    

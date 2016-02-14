@@ -172,28 +172,91 @@ public class Picture extends SimplePicture
 
    // REQUIRED FOR 90-POINTS
    public void mirrorVertical()
-   { 
+   {
+       Pixel pixels[][] = this.getPixels2D();
+    	  int height = pixels.length;
+    	  int width = pixels[0].length;
+    	  int midIndex = width/2;
+    	  int lastIndex = width -1;
+    	  Pixel leftPixel = null;
+    	  Pixel rightPixel = null;
+    	  
+    	  for(int row=0; row < height; row++){
+    		  for(int col=0; col < midIndex; col++){
+    			  leftPixel = pixels[row][col];
+    			  rightPixel = pixels[row][lastIndex-col];
+    			  rightPixel.setColor(leftPixel.getColor());
+    		  }
+    	  }
    }
    
 //////////////////////////////////////////////////////////////////////////////////
    
    // REQUIRED FOR 90-POINTS
    public void mirrorHorizontal()
-   { 
+   {
+       Pixel pixels[][] = this.getPixels2D();
+    	  int height = pixels.length;
+    	  int width = pixels[0].length;
+    	  int midIndex = height/2;
+    	  int lastIndex = height -1;
+    	  Pixel topPixel = null;
+    	  Pixel botPixel = null;
+    	  
+    	  for(int col=0; col < width; col++){
+    		  for(int row=0; row < midIndex; row++){
+    			  topPixel = pixels[row][col];
+    			  botPixel = pixels[lastIndex-row][col];
+    			  botPixel.setColor(topPixel.getColor());
+    		  }
+    	  }
    }
       
 //////////////////////////////////////////////////////////////////////////////////////////////////      
     
    // REQUIRED FOR 90-POINTS
    public void mirrorDiagonal()
-   { 
+   {
+       Pixel pixels[][] = this.getPixels2D();
+    	  int height = pixels.length;
+    	  int width = pixels[0].length;
+    	  int midIndex = width/2;
+    	  int lastIndex = width -1;
+    	  Pixel leftPixel = null;
+    	  Pixel rightPixel = null;
+    	  
+    	  int hey = height-1;
+    	  int there = width-1;
+    	  
+    	  for(int row=0; row < height; row++){
+    		  for(int col=0; col < 452; col++){
+    			  leftPixel = pixels[col][row];
+    			  rightPixel = pixels[row][col];
+    			  rightPixel.setColor(leftPixel.getColor());
+    		  }
+    	  }
    }
    
 /////////////////////////////////////////////////////////////////////////////////////
    
    // REQUIRED FOR 100-POINTS
    public void mirrorTemple()
-   { 
+   {
+       Pixel pixels[][] = this.getPixels2D();
+    	  int height = pixels.length;
+    	  int width = pixels[0].length;
+    	  int midIndex = width/2;
+    	  int lastIndex = width -1;
+    	  Pixel leftPixel = null;
+    	  Pixel rightPixel = null;
+    	  
+    	  for(int row=0; row < 100; row++){
+    		  for(int col=0; col < midIndex; col++){
+    			  leftPixel = pixels[row][col];
+    			  rightPixel = pixels[row][lastIndex-col];
+    			  rightPixel.setColor(leftPixel.getColor());
+    		  }
+    	  }
    }
    
 } 
